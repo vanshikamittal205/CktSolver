@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circuit Solver</title>
+</head>
+<body>
+    <h1>Circuit Solver</h1>
+    <h2>Instructions to use:</h2>
+    <h3>Input only one voltage source between nodes 1 and 0 only i.e. [voltage_source, its value,1,0]. </h3>
+        <h3>Do not give empty lines between the components and also do not leave an empty line in the end.</h3>
+        <h3>Ground node must be zero.</h3>
+    <form method="POST" action="/solve">
+        <label for="components">Enter Components (type, value, node1, node2):</label><br>
+        <textarea name="components" rows="10" cols="50"></textarea><br><br>
+        
+        <label for="ground_node">Enter Ground Node:</label><br>
+        <input type="number" name="ground_node"><br><br>
+        
+        <button type="submit">Solve Circuit</button>
+    </form>
+    
+    {% if solution %}
+        <h2>Solution:</h2>
+        <pre>{{ solution }}</pre>
+    {% endif %}
+
+    {% if error %}
+        <h2>Error:</h2>
+        <pre>{{ error }}</pre>
+    {% endif %}
+</body>
+</html>
